@@ -1,0 +1,5 @@
+FROM nginxinc/nginx-unprivileged:alpine
+
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx_client/nginx.conf /etc/nginx/conf.d
+COPY static/ /usr/share/nginx/html/

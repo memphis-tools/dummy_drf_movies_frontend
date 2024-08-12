@@ -1,0 +1,256 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Dosis", sans-serif;
+  src: url('../fonts/Dosis-Medium.ttf') format('truetype');
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body, html {
+  font-family: "Bebas Neue", sans-serif;
+  color: white;
+  background-color: #000;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+nav {
+  background-color: #4E6E81;
+  color: #F6F1F1;
+  text-transform: uppercase;
+  position: fixed;
+  z-index: 1;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+.navbar,
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.navbar-nav {
+  background-color: #7c95a4;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px 1%;
+}
+
+.nav-item:hover {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #30414A;
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav_container ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.nav_container li {
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+.nav_container li a {
+  text-decoration: none;
+}
+
+.nav_container li a:link,
+.nav_container li a:visited,
+.nav_container li a:active {
+  color: #000000;
+  text-decoration: none;
+}
+
+.nav_container li a:hover {
+  color: #fff;
+  transition-duration: 0.4s;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #000;
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
+.section_title {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  padding: 15px 0 15px 0;
+  background-color: #4e6e81ab;
+  text-transform: uppercase;
+}
+
+section button {
+  background-color: black;
+  border: none;
+  color: white;
+  font-size: 2em;
+}
+
+.movies_container a {
+  color: white;
+}
+
+.best_movie_container,
+.movies_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.movies_container button {
+  margin: 0px 10px;
+}
+
+.best_movie {
+  width: 100%;
+  border: 1px solid #000;
+}
+
+.right_arrow a{
+  text-decoration: none;
+}
+
+.left_arrow a{
+  text-decoration: none;
+}
+
+.modal {
+  color: black;
+  font-family: Dosis;
+}
+
+.modal-header {
+ justify-content: center;
+}
+
+.modal-text-content {
+  padding-left: 10px;
+}
+
+.modal-element{
+  padding-left: 10px;
+}
+
+#modal-actors,
+#modal-genres,
+#modal-countries_of_origin {
+  text-transform: capitalize;
+}
+
+.genres_div {
+  font-family: 'Bebas Neue', sans-serif;
+  color: white;
+  background-color: #000;
+}
+
+.genres_div button {
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  color: blue;
+}
+
+.genres_div button:hover {
+  color: white;
+}
+
+/* The Close Button */
+.close {
+ color: #aaa;
+ float: right;
+ font-size: 28px;
+ font-weight: bold;
+ padding-right: 5px;
+ position: fixed;
+}
+
+.close:hover,
+.close:focus {
+ color: black;
+ text-decoration: none;
+ cursor: pointer;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black;
+  font-size: 1.5rem;
+}
+
+.footer_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #4E6E81;
+  margin-top: 2%;
+  z-index: 1;
+}
+
+
+@media (max-width: 576px) {
+  .movies_container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #carousel_categorie_0,
+  #carousel_categorie_1,
+  #carousel_categorie_2,
+  #carousel_categorie_3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .left_arrow,
+  .right_arrow {
+    width: 125px;
+    margin: 0% 0% 5% 5%;
+  }
+
+  .left_arrow a,
+  .right_arrow a{
+    color: black;
+  }
+}

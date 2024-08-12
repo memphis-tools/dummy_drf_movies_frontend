@@ -1,0 +1,10 @@
+services:
+  nginx_client:
+    build:
+      context: .
+      dockerfile: ./nginx_client/Dockerfile
+    container_name: nginx_client
+    volumes:
+      - ./certs:/etc/nginx/certs
+    ports:
+      - 4443:443

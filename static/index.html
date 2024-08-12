@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dummy HTML5, CSS3, and JavaScript to render a Django REST Framework application.">
+    <meta name="keywords" content=html5 css3 js"">
+    <title>DUMMY-MOVIES</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--  FontAwesome -->
+    <link rel="stylesheet" href="/css/fontawesome-free-6.4.0-web/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!--  A Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="body_container">
+      <header>
+        <nav class="navbar">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="/">
+                  🎥
+                  DUMMY-MOVIES
+              </a>
+              <button id="navbar-toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggler button">
+                  <span class="navbar-toggler-icon"></span>
+                  MENU
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <ul class="navbar-nav d-flex flex-column align-items-center">
+                      <li class="nav-item">
+                          <a class="nav-link" href="/">accueil</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#" onclick="get_all_genres()">genres</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <noscript>
+        <div>
+            <strong>JavaScript is disabled in your browser. Please enable JavaScript for the best experience on this site.</strong>
+        </div>
+        </noscript>
+        <!-- La modale -->
+        <div class="modal fade" id="dummy-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-title"></h5>
+                    </div>
+                    <div class="modal-body d-flex">
+                        <div class="modal-image-content">
+                            <img id="modal-image" src="" alt="image du film">
+                        </div>
+                        <div class="modal-text-content">
+                            <div><strong>Description:</strong><p id="modal-description"></p></div>
+                            <div class="d-flex flex-row"><strong>Genres:</strong><p class="modal-element" id="modal-genres"></p></div>
+                            <div class="d-flex flex-row"><strong>Year:</strong><p class="modal-element" id="modal-year"></p></div>
+                            <div class="d-flex flex-row"><strong>Rating:</strong><p class="modal-element" id="modal-rating"></p></div>
+                            <div class="d-flex flex-row"><strong>Director:</strong><p class="modal-element" id="modal-director"></p></div>
+                            <div class="d-flex flex-row"><strong>Writer:</strong><p class="modal-element" id="modal-writer"></p></div>
+                            <div><strong>Actors:</strong><p id="modal-actors"></p></div>
+                            <div class="d-flex flex-row"><strong>Countries of origin:</strong><p class="modal-element" id="modal-countries_of_origin"></p></div>
+                            <div><strong>Trailer:</strong>
+                                <a id="modal-trailer" href="" target="_blank">Watch trailer on IMDb</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin de la modale -->
+        <section id="section_categorie_0">
+            <h2 class="section_title d-flex flex-column"><i class="fas fa-solid fa-ranking-star"></i>Best Movies</h2>
+            <div class="movies_container">
+                <button class="left_arrow fas fa-chevron-left" id="left_arrow_categorie_0"><a href="#carousel_categorie_0"></a></button>
+                <div id="carousel_categorie_0"></div>
+                <button class="right_arrow fas fa-chevron-right" id="right_arrow_categorie_0"><a href="#carousel_categorie_0"></a></button>
+            </div>
+        </section>
+        <section id="section_categorie_1">
+          <h2 class="section_title">Animation Movies</h2>
+            <div class="movies_container">
+                <button class="left_arrow fas fa-chevron-left" id="left_arrow_categorie_1"><a href="#carousel_categorie_1"></a></button>
+                <div id="carousel_categorie_1"></div>
+                <button class="right_arrow fas fa-chevron-right" id="right_arrow_categorie_1"><a href="#carousel_categorie_1"></a></button>
+            </div>
+        </section>
+        <section id="section_categorie_2">
+            <h2 class="section_title">Drama Movies</h2>
+            <div class="movies_container">
+                <button class="left_arrow fas fa-chevron-left" id="left_arrow_categorie_2"><a href="#carousel_categorie_2"></a></button>
+                <div id="carousel_categorie_2"></div>
+                <button class="right_arrow fas fa-chevron-right" id="right_arrow_categorie_2"><a href="#carousel_categorie_2"></a></button>
+            </div>
+        </section>
+        <section id="section_categorie_3">
+            <h2 class="section_title">Thriller Movies</h2>
+            <div class="movies_container">
+                <button class="left_arrow fas fa-chevron-left" id="left_arrow_categorie_3"><a href="#carousel_categorie_3"></a></button>
+                <div id="carousel_categorie_3"></div>
+                <button class="right_arrow fas fa-chevron-right" id="right_arrow_categorie_3"><a href="#carousel_categorie_3"></a></button>
+            </div>
+        </section>
+      </main>
+      <footer>
+          <div class="footer_content">
+              <p id="footer_date"></p>
+          </div>
+      </footer>
+  </div>
+  <!-- Axios -->
+  <script src="js/axios.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <!--  Custom javascript -->
+  <script src="./js/scripts.js"></script>
+</body>
+</html>
