@@ -1,4 +1,4 @@
-const BASE_URL = "https://127.0.0.1";
+const BASE_URL = "https://localhost";
 const displayed_categories_number = 4;
 const modal = document.getElementById("movie_modal");
 const modal_content = document.getElementById("modal-content");
@@ -113,7 +113,6 @@ function update_carousel(section_name, data) {
   }
   current_section = document.getElementById(section_name);
   current_section.focus();
-  a_movie.addEventListener("click", () => get_movie_detail(new_movie["id"]))
 }
 
 function get_carousel_current_page(carousel_name) {
@@ -178,7 +177,7 @@ function get_previous_movies(carousel_name, modal, modal_content) {
 function replace_arrows_when_resize_screen_width_to_min() {
   const arrows_zones = document.getElementsByClassName("arrows-zone");
   if (arrows_zones.length == 0) {
-    for (let i=0; i<4; i++) {
+    for (let i=0; i<displayed_categories_number; i++) {
       const moviesContainer = document.querySelector(`#section_categorie_${i} .movies_container`);
       const carousel = document.getElementById(`carousel_categorie_${i}`);
       const left_arrow = document.getElementById(`left_arrow_categorie_${i}`);
@@ -222,7 +221,7 @@ function replace_arrows_when_resize_screen_width_to_min() {
 function replace_arrows_when_resize_screen_width_to_max() {
   const arrows_zones = document.getElementsByClassName("arrows-zone");
   if (arrows_zones.length > 0) {
-    for (let i=0; i<4; i++) {
+    for (let i=0; i<displayed_categories_number; i++) {
       const moviesContainer = document.querySelector(`#section_categorie_${i} .movies_container`);
       const carousel = document.getElementById(`carousel_categorie_${i}`);
         while (arrows_zones.length > 0) {
@@ -274,9 +273,9 @@ function update_carousel_list(new_genre) {
   genres_div = document.getElementById("genres_div");
   genres_div.remove();
 
-  movies_genre_list[1].carousel_request = `genre=${new_genre}`;
-  temp_genres_list = ["best movies", new_genre, "drama", "thriller"]
-  for (let i=0; i<4; i++) {
+  movies_genre_list[0].carousel_request = `genre=${new_genre}`;
+  temp_genres_list = [new_genre, "animation", "drama", "thriller"]
+  for (let i=0; i<displayed_categories_number; i++) {
     new_section = document.createElement("section");
     new_section.id = `section_categorie_${i}`;
     new_section_header = document.createElement("h2");
@@ -299,7 +298,6 @@ function update_carousel_list(new_genre) {
     new_section_left_button.onclick = function() {get_previous_movies("carousel_categorie_"+i, modal, modal_content)};
     new_section_right_button.onclick = function() {get_next_movies("carousel_categorie_"+i, modal, modal_content)};
 
-
     new_section_carousel.appendChild(new_section_left_button);
     new_section_carousel.appendChild(new_section_body);
     new_section_carousel.appendChild(new_section_right_button);
@@ -310,7 +308,6 @@ function update_carousel_list(new_genre) {
 
     request = get_carousel_request(`carousel_categorie_${i}`);
     current_page_number = 1
-
 
     update_carousel_current_page(`carousel_categorie_${i}`, current_page_number);
     axios_get_request(`carousel_categorie_${i}`);
