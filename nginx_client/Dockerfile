@@ -1,4 +1,4 @@
-FROM nginxinc/nginx-unprivileged:alpine
+FROM nginxinc/nginx-unprivileged:1.30.4-alpine3.24-slim
 
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx_client/nginx.conf /etc/nginx/conf.d
