@@ -18,7 +18,7 @@ jobs:
         !contains(github.head_ref, 'alpine')
       ) ||
       (
-        startsWith(github.head_ref, '[Aikido] AI Fix') &&
+        startsWith(github.head_ref, '[Aikido]') &&
         !contains(github.head_ref, 'alpine')
       )
     runs-on: ubuntu-latest
