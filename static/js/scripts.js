@@ -1,4 +1,4 @@
-const BASE_URL = "https://127.0.0.1";
+const BASE_URL = "https://dummy-django-restframework.dev";
 const displayed_categories_number = 4;
 const modal = document.getElementById("movie_modal");
 const modal_content = document.getElementById("modal-content");

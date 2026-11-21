@@ -5,6 +5,6 @@ services:
       dockerfile: ./nginx_client/Dockerfile
     container_name: nginx_client
     volumes:
-      - ./certs:/etc/nginx/certs
+      - ./certs:/etc/nginx/certs:ro,Z
     ports:
       - 4443:443

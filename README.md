@@ -15,7 +15,7 @@ This dummy client is waiting for a Django REST Framework from the project: https
 
 So be sure you're running this project and services up: docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"
 
-<img src="illustrations/dummy_django_restframework.png" width="100%%" height="auto">
+<img src="pictures/dummy_django_restframework.png" width="100%%" height="auto">
 
 Then we clone the repository:
     git clone --recurse-submodules https://github.com/memphis-tools/dummy_drf_movies_frontend.git
@@ -24,18 +24,11 @@ Then we clone the repository:
 
     git submodule update --remote
 
-At the project root folder, create a "certs" folder and create a dummy self-signed cert:
+Create a dummy self-signed cert with a default dummy self CA:
 
-    mkdir certs
+    # dnf install mkcert nss-tools
 
-    openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -out ./certs/dummy_imdb_movies.crt -keyout ./certs/dummy_imdb_movies.key -subj "/CN=dummy_imdb_movies"
-
-We use nginx-unprivileged:alpine image. We check the nginx user ids and update the certs owner.
-
-    docker run --rm nginxinc/nginx-unprivileged:alpine id nginx
-
-    chown -R 101:101 certs
-
+    $ mkcert -cert-file ./certs/dummy-imdb-movies.crt -key-file ./certs/dummy-imdb-movies.key dummy-imdb-movies.dev
 
 ### RUN APP
 Start the dummy nginx client:
@@ -43,10 +36,10 @@ Start the dummy nginx client:
 
 So you should have the following: docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"
 
-<img src="illustrations/dummy_django_restframework_with_client.png" width="100%%" height="auto">
+<img src="pictures/dummy_django_restframework_front_docker.png" width="100%%" height="auto">
 
 Go to: https://localhost:4443/
 
 You should find:
 
-<img src="illustrations/dummy_imdb_movies_frontend.png" width="100%%" height="auto">
+<img src="pictures/dummy_django_restframework_front.png" width="100%%" height="auto">
